@@ -556,7 +556,7 @@ Thanks to **@Dinny-xu** and **@Gnonymous** for reporting and helping diagnose th
 
 ### ☕ Buy Me a Coffee
 
-If TermiPet makes your terminal more fun and productive, you are welcome to buy me a coffee on [Afdian](https://afdian.com/a/bleethen).
+If TermiPet makes your terminal more fun and productive, you are welcome to buy me a coffee on [Afdian](https://afdian.com/a/bleetchen).
 
 As an independent developer, every sponsorship directly helps cover hard project costs such as API testing tokens and servers, so this open-source tool can keep going further. Sponsorship is completely optional; giving the project a ⭐ or recommending it to macOS friends is already a huge support.
 
