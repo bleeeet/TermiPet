@@ -552,13 +552,13 @@ TermiPet 的使用场景离不开这些 AI 编程和模型生态的启发与兼�
 
 ## 支持项目
 
-### 请我喝杯咖啡
+### ☕ 请我喝杯咖啡
 
 如果 TermiPet 让你的终端变得更有趣、更有生产力，欢迎在 [爱发电](https://afdian.com/a/bleethen) 上请我喝杯咖啡。
 
 作为一名独立开发者，所有赞助都会直接用于覆盖项目的各大 API 测试 Token、服务器等硬性开销，让这个开源小工具能走得更远。不赞助也完全没关系，点个 ⭐ 或是推荐给身边用 macOS 的朋友，都是对我极大的支持。
 
-### 商业合作 / 团队定制
+### 💼 商业合作 / 团队定制
 
 想基于 TermiPet 继续开发商业使用，或者有其他定制 macOS AI 工具合作，欢迎随时通过邮件聊聊：[bleetchenxuanling@gmail.com](mailto:bleetchenxuanling@gmail.com)。
 
