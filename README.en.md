@@ -33,6 +33,8 @@
   ·
   <a href="#privacy-and-data">Privacy</a>
   ·
+  <a href="#star-history">Star History</a>
+  ·
   <a href="#build-from-source">Build</a>
   ·
   <a href="#license">License</a>
@@ -224,6 +226,14 @@ Imported pets are copied into TermiPet's Application Support directory. The app 
 ## Acknowledgements
 
 TermiPet is shaped by and built around practical workflows involving **Claude Code**, **Codex**, **Google Gemini**, **GitHub Copilot**, and **Ollama**. They are not official contributors to or endorsers of TermiPet, but the app integrates with related local workflows, status displays, usage reading, and pet chat experiences.
+
+## Star History
+
+<p align="center">
+  <a href="https://www.star-history.com/#bleeeet/termipet&Date">
+    <img alt="TermiPet Star History Chart" src="https://api.star-history.com/svg?repos=bleeeet/termipet&type=Date">
+  </a>
+</p>
 
 ## License
 

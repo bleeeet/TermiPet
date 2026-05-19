@@ -33,6 +33,8 @@
   ·
   <a href="#隱私與資料">隱私</a>
   ·
+  <a href="#star-history">Star History</a>
+  ·
   <a href="#從原始碼建置">建置</a>
   ·
   <a href="#授權">授權</a>
@@ -163,6 +165,14 @@ TermiPet 可以匯入 **Petdex / Codex 相容的寵物包**。在「設定 -> �
 ## 致謝
 
 TermiPet 的使用場景受到 **Claude Code**、**Codex**、**Google Gemini**、**GitHub Copilot** 和 **Ollama** 等 AI 編程與模型生態啟發，也圍繞相關本地工作流、狀態顯示、用量讀取和寵物對話體驗做了適配。它們不是 TermiPet 的官方貢獻者或背書方。
+
+## Star History
+
+<p align="center">
+  <a href="https://www.star-history.com/#bleeeet/termipet&Date">
+    <img alt="TermiPet Star History Chart" src="https://api.star-history.com/svg?repos=bleeeet/termipet&type=Date">
+  </a>
+</p>
 
 ## 授權
 

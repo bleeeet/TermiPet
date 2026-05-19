@@ -34,6 +34,8 @@
   ·
   <a href="#隐私与数据">隐私与数据</a>
   ·
+  <a href="#star-history">Star History</a>
+  ·
   <a href="#使用方式">使用方式</a>
   ·
   <a href="#开发">开发</a>
@@ -535,6 +537,14 @@ TermiPet 可能需要辅助功能权限，用于：
 ## 致谢
 
 TermiPet 的使用场景离不开这些 AI 编程和模型生态的启发与兼容支持：**Claude Code**、**Codex**、**Google Gemini**、**GitHub Copilot** 和 **Ollama**。它们不是 TermiPet 的官方贡献者或背书方，但 TermiPet 围绕这些工具的本地工作流、状态显示、用量读取和宠物对话体验做了适配。
+
+## Star History
+
+<p align="center">
+  <a href="https://www.star-history.com/#bleeeet/termipet&Date">
+    <img alt="TermiPet Star History Chart" src="https://api.star-history.com/svg?repos=bleeeet/termipet&type=Date">
+  </a>
+</p>
 
 ## License
 

@@ -33,6 +33,8 @@
   ·
   <a href="#개인정보와-데이터">개인정보</a>
   ·
+  <a href="#star-history">Star History</a>
+  ·
   <a href="#소스에서-빌드">빌드</a>
   ·
   <a href="#라이선스">라이선스</a>
@@ -163,6 +165,14 @@ TermiPet은 **Petdex / Codex 호환 펫 패키지**를 가져올 수 있습니�
 ## 감사의 말
 
 TermiPet의 사용 경험은 **Claude Code**, **Codex**, **Google Gemini**, **GitHub Copilot**, **Ollama** 같은 AI 코딩 및 모델 생태계와 밀접하게 연결되어 있습니다. 이들은 TermiPet의 공식 기여자나 보증 주체는 아니지만, TermiPet은 관련 로컬 워크플로, 상태 표시, 사용량 읽기, 펫 채팅 경험에 맞춰 설계되었습니다.
+
+## Star History
+
+<p align="center">
+  <a href="https://www.star-history.com/#bleeeet/termipet&Date">
+    <img alt="TermiPet Star History Chart" src="https://api.star-history.com/svg?repos=bleeeet/termipet&type=Date">
+  </a>
+</p>
 
 ## 라이선스
 
