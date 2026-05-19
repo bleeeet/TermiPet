@@ -4,10 +4,10 @@ cask "termipet" do
 
   url "https://github.com/bleeeet/TermiPet/releases/download/v#{version}/TermiPet-v#{version}-macOS.zip"
   name "TermiPet"
-  desc "Desktop pet assistant for macOS terminals and AI coding tools"
+  desc "Desktop pet assistant for terminals and AI coding tools"
   homepage "https://github.com/bleeeet/TermiPet"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "TermiPet.app"
 end
