@@ -83,6 +83,8 @@ TermiPet 會把 Claude Code 等 AI 編程工具的狀態整理成懸浮卡片，
 
 快捷指令面板把常用 Claude Code 指令放在手邊，適合頻繁使用 `/compact`、`/review`、`/status`、`/diff` 等指令的工作流。你可以一鍵輸入到目前終端，也可以新增自己的指令。
 
+自動輸入需要先點擊 macOS 頂部選單列中的 TermiPet 圖示，並選擇「請求輔助使用權限」或「打開輔助使用設定」。如果沒有授予輔助使用權限，快捷指令仍可使用，但只會把指令複製到剪貼簿，需要你手動貼到終端。
+
 <p align="center">
   <img src="docs/images/termipet-command-panel.png" width="360" alt="TermiPet command panel">
 </p>
@@ -132,21 +134,48 @@ TermiPet 是本地運行的 macOS 應用，**沒有自建雲端中轉伺服器**
 | --- | --- |
 | 作業系統 | macOS 14.0 或更高版本 |
 | 建置工具 | Swift 6 工具鏈 |
-| 本地聊天 | 可選，需要安裝 [Ollama](https://ollama.com) |
+| 本地聊天 | 可選；只有使用本地模型聊天時才需要安裝並啟動 [Ollama](https://ollama.com) |
 | 線上模型 | 可選，需要 OpenAI、Google Gemini 或相容服務的 API Key |
 | 系統權限 | 終端預覽和自動輸入需要 macOS 輔助使用權限 |
 
 ## 下載與安裝
 
-普通使用者不需要自己編譯，可以直接下載已打包好的 macOS App：
+### 直接下載 App
+
+最推薦普通使用者使用這個方式：不需要安裝 Swift、Homebrew 或其他開發工具，直接下載已打包好的 macOS App。
 
 1. 打開 [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases)。
-2. 下載最新版本中的 `TermiPet-v0.1-macOS.zip`。
+2. 下載最新版本中的 `TermiPet-v0.1.1-macOS.zip`。
 3. 解壓後得到 `TermiPet.app`。
 4. 將 `TermiPet.app` 拖到「應用程式」資料夾，或直接雙擊執行。
 5. 首次開啟時，如果 macOS 提示來自未驗證開發者，可以到「系統設定 -> 隱私權與安全性」允許開啟。
 
-TermiPet 會出現在 macOS 選單列中，預設不會顯示在 Dock。終端預覽、快捷指令輸入和資料夾 `cd` 輸入需要 macOS 輔助使用權限。
+TermiPet 會出現在 macOS 選單列中，預設不會顯示在 Dock。終端預覽、快捷指令自動輸入和資料夾 `cd` 自動輸入需要 macOS 輔助使用權限。未授權時，快捷指令會複製到剪貼簿，需要手動貼上。
+
+### 一行腳本安裝
+
+如果你習慣使用終端，也可以執行下面這行命令，腳本會自動下載 GitHub Releases 裡的最新版 `TermiPet.app` 並安裝到「應用程式」：
+
+```zsh
+curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
+```
+
+如果想先查看腳本內容，也可以打開 [`install.sh`](install.sh) 後再決定是否執行。
+
+### Homebrew 安裝
+
+如果你使用 Homebrew，可以透過 TermiPet 的 tap 安裝最新版：
+
+```zsh
+brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
+brew install --cask termipet
+```
+
+也可以使用完整名稱，避免和其他 tap 裡的同名 cask 混淆：
+
+```zsh
+brew install --cask bleeeet/termipet/termipet
+```
 
 ## 從原始碼建置
 

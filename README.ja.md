@@ -83,6 +83,8 @@ TermiPet は Claude Code などの AI コーディングツールの状態をフ
 
 `/compact`、`/review`、`/status`、`/diff` などの Claude Code コマンドをすぐに入力できます。自分のコマンドを追加し、順序変更やピン留めもできます。
 
+自動入力には macOS のアクセシビリティ権限が必要です。先にメニューバーの TermiPet アイコンをクリックし、「アクセシビリティ権限を要求」または「アクセシビリティ設定を開く」を選択してください。権限がない場合でもコマンドパネルは使えますが、コマンドはクリップボードにコピーされるだけなので、手動でターミナルへ貼り付ける必要があります。
+
 <p align="center">
   <img src="docs/images/termipet-command-panel.png" width="360" alt="TermiPet command panel">
 </p>
@@ -132,21 +134,48 @@ TermiPet は Mac 上でローカルに動作し、**独自のクラウド中継�
 | --- | --- |
 | OS | macOS 14.0 以降 |
 | ビルド環境 | Swift 6 |
-| ローカルチャット | 任意、[Ollama](https://ollama.com) が必要 |
+| ローカルチャット | 任意。ローカルモデルでチャットする場合のみ [Ollama](https://ollama.com) のインストールと起動が必要 |
 | オンラインモデル | 任意、OpenAI、Google Gemini、または互換 API のキーが必要 |
 | 権限 | ターミナルプレビューと入力には macOS アクセシビリティ権限が必要 |
 
 ## ダウンロードとインストール
 
-通常のユーザーはソースからビルドする必要はありません。パッケージ済みの macOS App を直接ダウンロードできます。
+### App を直接ダウンロード
+
+通常のユーザーにはこの方法をおすすめします。Swift、Homebrew、その他の開発ツールは不要で、パッケージ済みの macOS App を直接ダウンロードできます。
 
 1. [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases) を開きます。
-2. 最新リリースから `TermiPet-v0.1-macOS.zip` をダウンロードします。
+2. 最新リリースから `TermiPet-v0.1.1-macOS.zip` をダウンロードします。
 3. 解凍して `TermiPet.app` を取り出します。
 4. `TermiPet.app` を「アプリケーション」フォルダへ移動するか、そのままダブルクリックして起動します。
 5. 初回起動時に macOS がブロックする場合は、「システム設定 -> プライバシーとセキュリティ」から実行を許可してください。
 
-TermiPet は macOS のメニューバーに表示され、デフォルトでは Dock に表示されません。ターミナルプレビュー、クイックコマンド入力、フォルダ `cd` 入力には macOS アクセシビリティ権限が必要です。
+TermiPet は macOS のメニューバーに表示され、デフォルトでは Dock に表示されません。ターミナルプレビュー、クイックコマンドの自動入力、フォルダ `cd` の自動入力には macOS アクセシビリティ権限が必要です。権限がない場合、コマンドはクリップボードにコピーされるため、手動で貼り付けてください。
+
+### ワンラインスクリプトでインストール
+
+ターミナルに慣れている場合は、次のコマンドで GitHub Releases の最新版 `TermiPet.app` をダウンロードし、「アプリケーション」にインストールできます。
+
+```zsh
+curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
+```
+
+実行前に [`install.sh`](install.sh) の内容を確認することもできます。
+
+### Homebrew でインストール
+
+Homebrew を使っている場合は、TermiPet の tap から最新版をインストールできます。
+
+```zsh
+brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
+brew install --cask termipet
+```
+
+他の tap の同名 cask と区別したい場合は、完全な名前も使えます。
+
+```zsh
+brew install --cask bleeeet/termipet/termipet
+```
 
 ## ソースからビルド
 

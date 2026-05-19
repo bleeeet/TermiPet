@@ -83,6 +83,8 @@ TermiPet turns Claude Code and terminal activity into floating status cards. Car
 
 The command panel keeps frequent Claude Code commands close at hand, including `/compact`, `/review`, `/status`, and `/diff`. You can insert commands into the current terminal, add your own entries, reorder them, and pin favorites.
 
+Automatic input requires macOS Accessibility permission. Click the TermiPet icon in the menu bar and choose "Request Accessibility Permission" or "Open Accessibility Settings" first. Without that permission, command panel actions still work, but they copy the command to the clipboard so you can paste it manually.
+
 <p align="center">
   <img src="docs/images/termipet-command-panel.png" width="360" alt="TermiPet command panel">
 </p>
@@ -141,9 +143,31 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 
 ## Download and Install
 
+### Direct download
+
+This is the recommended path for most users. You do not need Swift, Homebrew, or other developer tools to run TermiPet.
+
+1. Open [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases).
+2. Download `TermiPet-v0.1.1-macOS.zip` from the latest release.
+3. Unzip it to get `TermiPet.app`.
+4. Move `TermiPet.app` to Applications, or double-click it directly.
+5. If macOS blocks the first launch, open System Settings -> Privacy & Security and allow TermiPet to run.
+
+TermiPet appears in the macOS menu bar and does not show in the Dock by default. Terminal preview, automatic quick command input, and automatic folder `cd` input require macOS Accessibility permission. Without that permission, command panel actions copy commands to the clipboard for manual paste.
+
+### One-line script install
+
+If you prefer the terminal, run this command to download the latest packaged `TermiPet.app` from GitHub Releases and install it into Applications:
+
+```zsh
+curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
+```
+
+You can also read [`install.sh`](install.sh) before running it.
+
 ### Homebrew install
 
-Users do not need Swift or developer tools to run TermiPet. If you use Homebrew, install the latest packaged app from its tap:
+If you use Homebrew, install the latest packaged app from its tap:
 
 ```zsh
 brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
@@ -157,28 +181,6 @@ brew install --cask bleeeet/termipet/termipet
 ```
 
 > Maintenance note: Homebrew reads [`Casks/termipet.rb`](Casks/termipet.rb) directly from this repository. Update its `version` and `sha256` whenever a new Release is published.
-
-### One-line script install
-
-Most users can run this command to download the latest packaged `TermiPet.app` from GitHub Releases and install it into Applications:
-
-```zsh
-curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
-```
-
-You can also read [`install.sh`](install.sh) before running it.
-
-### Direct download
-
-Most users can download the packaged macOS app without building from source:
-
-1. Open [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases).
-2. Download `TermiPet-v0.1.1-macOS.zip` from the latest release.
-3. Unzip it to get `TermiPet.app`.
-4. Move `TermiPet.app` to Applications, or double-click it directly.
-5. If macOS blocks the first launch, open System Settings -> Privacy & Security and allow TermiPet to run.
-
-TermiPet appears in the macOS menu bar and does not show in the Dock by default. Terminal preview, quick command input, and folder `cd` input require macOS Accessibility permission.
 
 ## Build from Source
 
@@ -198,7 +200,7 @@ zsh Scripts/package-release.sh 0.1.1
 
 ## Usage
 
-Start TermiPet from the menu bar, show the pet, and grant Accessibility permission if you want terminal preview and quick input. Hover near the pet to open the toolbar, send commands, open the chat panel, switch skins, or start Pomodoro.
+Start TermiPet from the menu bar, show the pet, and grant Accessibility permission if you want terminal preview and automatic quick input. To grant it, click the TermiPet menu bar icon and choose "Request Accessibility Permission" or "Open Accessibility Settings". Without Accessibility permission, quick commands are copied to the clipboard instead of typed into the terminal automatically.
 
 Claude Code Hook can be installed from the menu bar. It writes local Hook files under `~/.claude/` and sends events to TermiPet's local service on `127.0.0.1`.
 

@@ -85,6 +85,8 @@ TermiPet 会把 Claude Code 等 AI 编程工具的状态整理成悬浮卡片，
 
 快捷指令面板把常用 Claude Code 命令放在手边，适合频繁使用 `/compact`、`/review`、`/status`、`/diff` 等命令的工作流。你可以用它一键把命令输入到当前终端，也可以在设置里添加自己的命令、调整顺序和置顶常用项。
 
+自动输入需要先点击 macOS 顶部菜单栏里的 TermiPet 图标，并选择「请求辅助功能授权」或「打开辅助功能设置」。如果没有授予辅助功能权限，快捷指令仍可使用，但只能把命令复制到剪切板，需要你手动粘贴到终端。
+
 <p align="center">
   <img src="docs/images/termipet-command-panel.png" width="360" alt="TermiPet command panel">
 </p>
@@ -143,9 +145,33 @@ TermiPet 是本地运行的 macOS 应用，**没有自建的云端中转服务�
 
 ## 下载与安装
 
+### 直接下载 App
+
+最推荐普通用户使用这个方式：不需要安装 Swift、Homebrew 或其他开发工具，直接下载已经打包好的 macOS App。
+
+1. 打开 [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases)。
+2. 下载最新版本里的 `TermiPet-v0.1.1-macOS.zip`。
+3. 解压后得到 `TermiPet.app`。
+4. 将 `TermiPet.app` 拖到「应用程序」文件夹，或直接双击运行。
+5. 首次打开时，如果 macOS 提示来自未验证开发者，可以在「系统设置 -> 隐私与安全性」里允许打开。
+
+启动后，TermiPet 会出现在 macOS 菜单栏中。它默认不会显示在 Dock 里。
+
+终端预览、快捷命令自动输入、文件夹 `cd` 自动输入等能力需要 macOS 辅助功能权限。可以通过菜单栏里的「请求辅助功能授权」和「打开辅助功能设置」完成授权；未授权时，快捷指令会复制到剪切板，需要手动粘贴。
+
+### 一行脚本安装
+
+如果你习惯用终端，也可以运行下面这行命令，脚本会自动下载 GitHub Releases 里的最新版 `TermiPet.app` 并安装到「应用程序」：
+
+```zsh
+curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
+```
+
+如果你想先查看脚本内容，也可以打开 [`install.sh`](install.sh) 后再决定是否运行。
+
 ### Homebrew 安装
 
-普通用户不需要安装 Swift 或其他开发工具。如果你使用 Homebrew，可以通过 TermiPet 的 tap 安装最新版：
+如果你使用 Homebrew，可以通过 TermiPet 的 tap 安装最新版：
 
 ```zsh
 brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
@@ -159,30 +185,6 @@ brew install --cask bleeeet/termipet/termipet
 ```
 
 > 维护说明：Homebrew 会直接从当前仓库读取 [`Casks/termipet.rb`](Casks/termipet.rb)。每次发布新版 Release 后，需要更新里面的 `version` 和 `sha256`。
-
-### 一行脚本安装
-
-普通用户可以直接运行下面这行命令，脚本会自动下载 GitHub Releases 里的最新版 `TermiPet.app` 并安装到「应用程序」：
-
-```zsh
-curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
-```
-
-如果你想先查看脚本内容，也可以打开 [`install.sh`](install.sh) 后再决定是否运行。
-
-### 直接下载 App
-
-普通用户不需要自己编译，可以直接从 GitHub Releases 下载已经打包好的 macOS App：
-
-1. 打开 [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases)。
-2. 下载最新版本里的 `TermiPet-v0.1.1-macOS.zip`。
-3. 解压后得到 `TermiPet.app`。
-4. 将 `TermiPet.app` 拖到「应用程序」文件夹，或直接双击运行。
-5. 首次打开时，如果 macOS 提示来自未验证开发者，可以在「系统设置 -> 隐私与安全性」里允许打开。
-
-启动后，TermiPet 会出现在 macOS 菜单栏中。它默认不会显示在 Dock 里。
-
-终端预览、快捷命令输入、文件夹 `cd` 输入等能力需要 macOS 辅助功能权限。可以通过菜单栏里的「请求辅助功能授权」和「打开辅助功能设置」完成授权。
 
 ### 从源码构建
 
@@ -248,6 +250,8 @@ zsh Scripts/build-plugin.sh
 2. 鼠标移到宠物上。
 3. 点击终端按钮。
 4. 从快捷指令面板选择命令。
+
+如果要让 TermiPet 自动把命令输入到终端，需要先点击 macOS 顶部菜单栏里的 TermiPet 图标，选择「请求辅助功能授权」或「打开辅助功能设置」，并在系统设置中允许 TermiPet。没有辅助功能权限时，命令只会复制到剪切板，需要你手动粘贴。
 
 内置命令包括：
 
