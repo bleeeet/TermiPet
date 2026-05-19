@@ -24,9 +24,8 @@
   <img alt="Swift" src="https://img.shields.io/badge/Swift-6.0-orange?logo=swift">
   <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue">
 </p>
-
 <p align="center">
-  <a href="#下载与安装">下载与安装</a>
+  <a href="#下载与安装">📦下载与安装</a>
   ·
   <a href="#主要功能">主要功能</a>
   ·
@@ -42,6 +41,7 @@
   ·
   <a href="#license">License</a>
 </p>
+
 TermiPet 是一个悬浮在 macOS 桌面上的宠物助手。它面向终端用户和 AI 编程工具用户，帮你**查看终端状态**、**发送常用命令**、**观察 Claude Code / Codex / GitHub Copilot 用量**，并支持用本地模型或线上 API 和宠物聊天。
 
 <p align="center">
@@ -54,24 +54,24 @@ TermiPet 是一个悬浮在 macOS 桌面上的宠物助手。它面向终端用�
   <img src="docs/images/termipet-workspace-overview.png" width="100%" alt="TermiPet workspace overview">
 </p>
 
-## 主要功能
+## ✨ 主要功能
 
 | 功能 | 说明 |
 | --- | --- |
-| 悬浮桌面宠物 | 以菜单栏应用运行，不占 Dock，可悬浮在屏幕边缘或终端旁。 |
-| 终端识别 | 支持 Terminal、iTerm2、Ghostty、Warp、WezTerm、Alacritty、Kitty 等终端。 |
-| 终端预览 | 聚焦终端时显示窗口标题、输出摘要、当前状态和提醒信息。 |
-| 快捷指令面板 | 内置 Claude Code 常用命令，也支持添加、置顶、排序自定义命令。 |
-| 文件夹快捷入口 | 选择项目文件夹后，自动向目标终端输入对应的 `cd` 命令。 |
-| Claude Code Hook | 同步 Claude Code 的思考、工具调用、等待授权、压缩上下文、完成等状态。 |
-| 宠物聊天 | 支持本地 Ollama、OpenAI、Google Gemini 和 OpenAI-compatible 自定义 API。 |
-| 性格配置 | 支持宠物名、主人名、性格预设、自定义 Prompt 和额外约束。 |
-| 番茄钟 | 支持 25 分钟专注和 5 分钟休息，完成时触发宠物庆祝动作。 |
-| AI 用量卡片 | 尝试读取 Claude Code、Codex、GitHub Copilot 的轻量用量信息。 |
-| 内置和自定义宠物 | 内置多款宠物，Terminal Cat 是 TermiPet 的吉祥物；也可导入自定义宠物资源包。 |
-| 多语言和皮肤 | 支持简体中文、繁体中文、英文、日文、韩文，以及玻璃、暗色、像素等皮肤。 |
+| 🐾 悬浮桌面宠物 | 以菜单栏应用运行，不占 Dock，可悬浮在屏幕边缘或终端旁。 |
+| 🖥️ 终端识别 | 支持 Terminal、iTerm2、Ghostty、Warp、WezTerm、Alacritty、Kitty 等终端。 |
+| 👀 终端预览 | 聚焦终端时显示窗口标题、输出摘要、当前状态和提醒信息。 |
+| ⚡ 快捷指令面板 | 内置 Claude Code 常用命令，也支持添加、置顶、排序自定义命令。 |
+| 📁 文件夹快捷入口 | 选择项目文件夹后，自动向目标终端输入对应的 `cd` 命令。 |
+| 🪝 Claude Code Hook | 同步 Claude Code 的思考、工具调用、等待授权、压缩上下文、完成等状态。 |
+| 💬 宠物聊天 | 支持本地 Ollama、OpenAI、Google Gemini 和 OpenAI-compatible 自定义 API。 |
+| 🎭 性格配置 | 支持宠物名、主人名、性格预设、自定义 Prompt 和额外约束。 |
+| 🍅 番茄钟 | 支持 25 分钟专注和 5 分钟休息，完成时触发宠物庆祝动作。 |
+| 📊 AI 用量卡片 | 尝试读取 Claude Code、Codex、GitHub Copilot 的轻量用量信息。 |
+| 🐱 内置和自定义宠物 | 内置多款宠物，Terminal Cat 是 TermiPet 的吉祥物；也可导入自定义宠物资源包。 |
+| 🌍 多语言和皮肤 | 支持简体中文、繁体中文、英文、日文、韩文，以及玻璃、暗色、像素等皮肤。 |
 
-## 界面预览
+## 🖼️ 界面预览
 
 ### 状态卡片和授权提示
 
@@ -117,7 +117,7 @@ TermiPet 内置多款宠物，默认主角是 `Terminal Cat`。宠物页可以�
   <img src="docs/images/termipet-floating-panel.png" width="520" alt="TermiPet floating panel">
 </p>
 
-## 隐私与数据
+## 🔐隐私与数据
 
 TermiPet 是本地运行的 macOS 应用，**没有自建的云端中转服务器**。它尽量把配置、密钥和状态读取都留在你的 Mac 上，只在你主动配置并使用外部模型或官方服务接口时，才会向对应的服务地址发起请求。
 
@@ -133,19 +133,19 @@ TermiPet 是本地运行的 macOS 应用，**没有自建的云端中转服务�
 
 换句话说：TermiPet 本身更像一个**本地插件和桌面助手**。聊天 API 会走你配置的请求地址；套餐读取会用本地已有凭据请求对应服务；终端状态、宠物配置、快捷指令和 API Key 都保存在本地。
 
-## 系统要求
+## 💻 系统要求
 
 | 项目 | 要求 |
 | --- | --- |
-| 操作系统 | macOS 14.0 或更高版本 |
-| 构建工具 | 仅从源码构建时需要 Swift 6 工具链 |
-| 本地聊天 | 可选；只有使用本地模型聊天时才需要安装并启动 [Ollama](https://ollama.com) |
-| 线上模型 | 可选，需要 OpenAI、Google Gemini 或兼容服务的 API Key |
-| 系统权限 | 终端预览和自动输入需要 macOS 辅助功能权限 |
+| 💻 操作系统 | macOS 14.0 或更高版本 |
+| 🧰 构建工具 | 仅从源码构建时需要 Swift 6 工具链 |
+| 🏠 本地聊天 | 可选；只有使用本地模型聊天时才需要安装并启动 [Ollama](https://ollama.com) |
+| ☁️ 线上模型 | 可选，需要 OpenAI、Google Gemini 或兼容服务的 API Key |
+| 🔓 系统权限 | 终端预览和自动输入需要 macOS 辅助功能权限 |
 
-## 下载与安装
+## 📦 下载与安装
 
-### 直接下载 App
+### 🚀 直接下载 App
 
 最推荐普通用户使用这个方式：不需要安装 Swift、Homebrew 或其他开发工具，直接下载已经打包好的 macOS App。
 
@@ -159,7 +159,7 @@ TermiPet 是本地运行的 macOS 应用，**没有自建的云端中转服务�
 
 终端预览、快捷命令自动输入、文件夹 `cd` 自动输入等能力需要 macOS 辅助功能权限。可以通过菜单栏里的「请求辅助功能授权」和「打开辅助功能设置」完成授权；未授权时，快捷指令会复制到剪切板，需要手动粘贴。
 
-### 一行脚本安装
+### 🧪 一行脚本安装
 
 如果你习惯用终端，也可以运行下面这行命令，脚本会自动下载 GitHub Releases 里的最新版 `TermiPet.app` 并安装到「应用程序」：
 
@@ -169,7 +169,7 @@ curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | 
 
 如果你想先查看脚本内容，也可以打开 [`install.sh`](install.sh) 后再决定是否运行。
 
-### Homebrew 安装
+### 🍺 Homebrew 安装
 
 如果你使用 Homebrew，可以通过 TermiPet 的 tap 安装最新版：
 
@@ -186,7 +186,7 @@ brew install --cask bleeeet/termipet/termipet
 
 > 维护说明：Homebrew 会直接从当前仓库读取 [`Casks/termipet.rb`](Casks/termipet.rb)。每次发布新版 Release 后，需要更新里面的 `version` 和 `sha256`。
 
-### 从源码构建
+### 🧰 从源码构建
 
 进入项目根目录后运行：
 
@@ -206,7 +206,7 @@ zsh Scripts/build-plugin.sh
 
 更详细的普通用户操作说明见 [USAGE.md](USAGE.md)。
 
-## 快速开始
+## 🏁快速开始
 
 ### 1. 显示宠物
 
@@ -232,17 +232,17 @@ zsh Scripts/build-plugin.sh
 
 | 按钮 | 用途 |
 | --- | --- |
-| 终端 | 打开或收起快捷指令面板 |
-| 文件夹 | 选择文件夹并向终端输入 `cd` |
-| 聊天 | 打开宠物聊天窗口 |
-| 调色板 | 在皮肤之间循环切换 |
-| 计时器 | 开始、暂停或继续 25 分钟番茄钟 |
-| 停止 | 番茄钟运行时停止计时 |
-| 杯子 | 开始 5 分钟休息 |
+| 🖥️ 终端 | 打开或收起快捷指令面板 |
+| 📁 文件夹 | 选择文件夹并向终端输入 `cd` |
+| 💬 聊天 | 打开宠物聊天窗口 |
+| 🎨 调色板 | 在皮肤之间循环切换 |
+| 🍅 计时器 | 开始、暂停或继续 25 分钟番茄钟 |
+| ⏹️ 停止 | 番茄钟运行时停止计时 |
+| ☕ 杯子 | 开始 5 分钟休息 |
 
 宠物下方还有动作按钮，可手动触发待机、运行、移动、开心、提醒、错误、睡觉、思考、庆祝等动画。
 
-## 使用方式
+## 🎮 使用方式
 
 ### 快速发送 Claude Code 命令
 
@@ -282,11 +282,11 @@ claude --dangerously-skip-permissions
   <img src="docs/images/termipet-command-settings.png" width="860" alt="TermiPet command settings">
 </p>
 
-### 快速切换项目目录
+### 📁 快速切换项目目录
 
 点击文件夹按钮，选择一个项目文件夹。TermiPet 会把对应的 `cd` 命令输入到最近使用的目标终端中。
 
-### 查看 Claude Code 状态
+### 👀 查看 Claude Code 状态
 
 TermiPet 可以通过 Claude Code Hook 接收开发 Agent 状态。安装后，宠物卡片可以显示 Claude Code 是否正在思考、调用工具、等待授权、压缩上下文或已经完成。
 
@@ -310,7 +310,7 @@ TermiPet 可以通过 Claude Code Hook 接收开发 Agent 状态。安装后，�
 
 安装后需要重启正在运行的 `claude` 进程才能生效。Hook 会把本机 Claude Code 事件发送给 TermiPet 启动在 `127.0.0.1` 的本地服务，用于更新宠物状态，不需要外部服务器参与。
 
-### 和宠物聊天
+### 💬 和宠物聊天
 
 点击聊天按钮即可打开聊天窗口。聊天模型有两种来源：
 
@@ -321,25 +321,25 @@ TermiPet 可以通过 Claude Code Hook 接收开发 Agent 状态。安装后，�
 
 API Key 会保存在 macOS 钥匙串中，普通配置会保存在 Application Support 目录。
 
-## 设置
+## ⚙️ 设置
 
 从菜单栏点击「设置...」，或右键宠物选择「设置...」，可以进入设置窗口。
 
 | 页面 | 用途 |
 | --- | --- |
-| 关于 | 查看版本、开发者和项目信息。 |
-| 皮肤 | 切换玻璃、暗色、像素等外观。 |
-| 语言 | 切换简体中文、繁体中文、英文、日文、韩文，重启后完整生效。 |
-| 快捷指令 | 管理内置命令和自定义命令，支持添加、删除、置顶和拖拽排序。 |
-| 宠物 | 导入并选择宠物资源包。 |
-| 性格 | 配置宠物名称、主人名称、性格预设、自定义 Prompt 和额外约束。 |
-| 模型 | 配置本地 Ollama 或线上 API 聊天模型。 |
+| ℹ️ 关于 | 查看版本、开发者和项目信息。 |
+| 🎨 皮肤 | 切换玻璃、暗色、像素等外观。 |
+| 🌍 语言 | 切换简体中文、繁体中文、英文、日文、韩文，重启后完整生效。 |
+| ⚡ 快捷指令 | 管理内置命令和自定义命令，支持添加、删除、置顶和拖拽排序。 |
+| 🐾 宠物 | 导入并选择宠物资源包。 |
+| 🎭 性格 | 配置宠物名称、主人名称、性格预设、自定义 Prompt 和额外约束。 |
+| 🧠 模型 | 配置本地 Ollama 或线上 API 聊天模型。 |
 
 <p align="center">
   <img src="docs/images/termipet-personality-settings.png" width="860" alt="TermiPet personality settings">
 </p>
 
-## 宠物聊天模型
+## 🧠 宠物聊天模型
 
 ### 本地模型
 
@@ -376,7 +376,7 @@ TermiPet 会检测 Ollama 是否运行。内置模型目录包括：
 
 API Key 会保存在 macOS 钥匙串中；Base URL、模型名等非敏感配置会保存在 Application Support 目录。填写后建议先点击「读取模型」和「测试连接」。
 
-## 自定义宠物
+## 🎨 自定义宠物
 
 TermiPet 内置多款宠物。默认主角是 `Terminal Cat`，它是一只陪在终端旁边的小猫，也是这个软件的吉祥物。内置宠物里还包括偏像素风的猫、巫师克劳德、Mochi 等角色；你也可以导入自己的宠物资源包，与 Codex 宠物文件兼容。
 
@@ -428,7 +428,7 @@ spritesheet 默认按 9 行动作解析：
 ~/Library/Application Support/TermiPet/selected-pet.json
 ```
 
-## 设计思路
+## 🧭 设计思路
 
 TermiPet 的设计分成三层：
 
@@ -450,7 +450,7 @@ TermiPet 会识别当前终端、编辑器和 AI 对话应用，并把这些上�
 
 命令、宠物、皮肤、语言、聊天模型、性格 Prompt 都做成可配置内容。后续可以继续扩展宠物资源包、命令模板、模型服务和更多开发工作流。
 
-## 项目结构
+## 🗂️ 项目结构
 
 ```text
 .
@@ -472,7 +472,7 @@ TermiPet 会识别当前终端、编辑器和 AI 对话应用，并把这些上�
 └── App/TermiPet.app             # 构建产物，由脚本生成
 ```
 
-## 开发
+## 🧑‍💻 开发
 
 完整构建、测试、签名并启动：
 
@@ -502,7 +502,7 @@ swift build -c debug
 
 源码构建会在本机生成 `App/TermiPet.app`，适合开发者自己调试或打包。
 
-## 配置文件
+## 📝 配置文件
 
 TermiPet 的用户配置主要保存在：
 
@@ -522,7 +522,7 @@ TermiPet 的用户配置主要保存在：
 
 线上模型 API Key 保存在 macOS 钥匙串中，不写入普通 JSON 配置文件。
 
-## 权限和隐私
+## 🛡️ 权限和隐私
 
 TermiPet 可能需要辅助功能权限，用于：
 
@@ -532,25 +532,25 @@ TermiPet 可能需要辅助功能权限，用于：
 
 如果不授权，应用仍可运行，但终端预览和自动输入能力会受限。可以通过菜单栏「打开辅助功能设置」前往系统设置授权。更完整的数据说明见上方「隐私与数据」。
 
-## Roadmap
+## 🗺️ Roadmap
 
 - 提供更稳定的安装包发布流程。
 - 增加更多默认宠物资源。
 - 增强更多 AI 编程工具的状态识别。
 - 优化新手引导和首次授权体验。
 
-## 贡献建议
+## 🤝 贡献建议
 
 - 行为改动请补充或更新测试。
 - 修改代码或资源后请运行 `zsh Scripts/build-plugin.sh` 并验证 App。
 
-## 致谢
+## 🙏 致谢
 
 TermiPet 的使用场景离不开这些 AI 编程和模型生态的启发与兼容支持：**Claude Code**、**Codex**、**Google Gemini**、**GitHub Copilot** 和 **Ollama**。它们不是 TermiPet 的官方贡献者或背书方，但 TermiPet 围绕这些工具的本地工作流、状态显示、用量读取和宠物对话体验做了适配。
 
 感谢 **@Dinny-xu** 和 **@Gnonymous** 报告并协助定位 v0.1 安装包中的资源 bundle 加载问题。
 
-## 支持项目
+## 👍 支持项目
 
 ### ☕ 请我喝杯咖啡
 
@@ -562,7 +562,7 @@ TermiPet 的使用场景离不开这些 AI 编程和模型生态的启发与兼�
 
 想基于 TermiPet 继续开发商业使用，或者有其他定制 macOS AI 工具合作，欢迎随时通过邮件聊聊：[bleetchenxuanling@gmail.com](mailto:bleetchenxuanling@gmail.com)。
 
-## Star History
+## ⭐ Star History
 
 <p align="center">
   <a href="https://www.star-history.com/#bleeeet/termipet&Date">
