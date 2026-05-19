@@ -25,19 +25,19 @@
   <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue">
 </p>
 <p align="center">
-  <a href="#下载与安装">📦下载与安装</a>
+  <a href="#-下载与安装">下载与安装</a>
   ·
-  <a href="#主要功能">主要功能</a>
+  <a href="#-主要功能">主要功能</a>
   ·
   <a href="#快速开始">快速开始</a>
   ·
   <a href="#隐私与数据">隐私与数据</a>
   ·
-  <a href="#star-history">Star History</a>
+  <a href="#-star-history">Star History</a>
   ·
-  <a href="#使用方式">使用方式</a>
+  <a href="#-使用方式">使用方式</a>
   ·
-  <a href="#开发">开发</a>
+  <a href="#-开发">开发</a>
   ·
   <a href="#license">License</a>
 </p>
