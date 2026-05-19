@@ -139,6 +139,35 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 
 ## Download and Install
 
+### Homebrew install
+
+If you use Homebrew, install TermiPet from its tap:
+
+```zsh
+brew tap bleeeet/termipet
+brew install --cask termipet
+```
+
+You can also use the fully qualified cask name to avoid conflicts with casks from other taps:
+
+```zsh
+brew install --cask bleeeet/termipet/termipet
+```
+
+> Maintenance note: this requires a separate `bleeeet/homebrew-termipet` tap repository containing [`Casks/termipet.rb`](Casks/termipet.rb). Update its `version` and `sha256` whenever a new Release is published.
+
+### One-line script install
+
+Most users can run this command to download the latest packaged `TermiPet.app` from GitHub Releases and install it into Applications:
+
+```zsh
+curl -fsSL https://raw.githubusercontent.com/bleeeet/TermiPet/main/install.sh | zsh
+```
+
+You can also read [`install.sh`](install.sh) before running it.
+
+### Direct download
+
 Most users can download the packaged macOS app without building from source:
 
 1. Open [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases).

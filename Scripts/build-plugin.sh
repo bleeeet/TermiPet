@@ -56,6 +56,12 @@ find Sources -name "*.swift" -exec touch {} \;
 swift test
 swift build -c debug
 
+if [ -d "$APP" ]; then
+    APP_BACKUP="$ROOT/App/TermiPet.app.previous-$(date +%Y%m%d-%H%M%S)"
+    echo "==> 移动旧构建到: $APP_BACKUP"
+    mv "$APP" "$APP_BACKUP"
+fi
+
 mkdir -p "$APP/Contents/MacOS"
 mkdir -p "$APP/Contents/Resources/Pets"
 
@@ -64,7 +70,6 @@ cp "$SOURCE/AppBundle/Info.plist" "$APP/Contents/Info.plist"
 cp "$SOURCE/AppBundle/TermiPet.icns" "$APP/Contents/Resources/TermiPet.icns"
 
 # 复制全部宠物资源到 .app（内置宠物在 PetPackage.builtInPetIds 中标记为不可删除）
-rm -rf "$APP/Contents/Resources/Pets"
 mkdir -p "$APP/Contents/Resources/Pets"
 for pet_dir in "$ROOT/Pets"/*/; do
     pet_name=$(basename "$pet_dir")
