@@ -163,7 +163,7 @@ struct AboutTabView: View {
     }
 
     private func loadImage(named name: String) -> NSImage? {
-        guard let imageURL = Bundle.module.url(forResource: name, withExtension: "png"),
+        guard let imageURL = TermiPetResources.pngURL(named: name),
               let image = NSImage(contentsOf: imageURL) else { return nil }
         return image
     }

@@ -153,7 +153,7 @@ struct PetSettingsView: View {
     @ViewBuilder
     private func tabIcon(_ tab: SettingsTab) -> some View {
         if tab == .pet,
-           let imageURL = Bundle.module.url(forResource: "bar", withExtension: "png"),
+           let imageURL = TermiPetResources.pngURL(named: "bar"),
            let nsImage = NSImage(contentsOf: imageURL) {
             Image(nsImage: nsImage)
                 .renderingMode(.template)

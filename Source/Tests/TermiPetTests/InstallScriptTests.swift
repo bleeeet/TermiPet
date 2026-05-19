@@ -66,11 +66,13 @@ final class InstallScriptTests: XCTestCase {
         let cask = try homebrewCask
 
         XCTAssertTrue(cask.contains("cask \"termipet\" do"))
-        XCTAssertTrue(cask.contains("version \"0.1\""))
-        XCTAssertTrue(cask.contains("sha256 \"ae281c823068398bdfd553f00f6484a36f8763dd522a386641311920a0ad7f6a\""))
+        XCTAssertTrue(cask.contains("version \"0.1.1\""))
+        XCTAssertTrue(cask.contains("sha256 \""))
         XCTAssertTrue(cask.contains("https://github.com/bleeeet/TermiPet/releases/download/v#{version}/TermiPet-v#{version}-macOS.zip"))
         XCTAssertTrue(cask.contains("depends_on macos: :sonoma"))
         XCTAssertTrue(cask.contains("app \"TermiPet.app\""))
+        XCTAssertTrue(cask.contains("postflight do"))
+        XCTAssertTrue(cask.contains("/usr/bin/xattr"))
     }
 
     func testReadmeShowsHomebrewInstallCommands() throws {

@@ -1,9 +1,14 @@
 #!/bin/zsh
 set -e
+set -u
+set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE="$ROOT/Source"
 APP="$ROOT/App/TermiPet.app"
+BUILD_CONFIGURATION="release"
+BUILD_PRODUCTS="$SOURCE/.build/apple/Products/Release"
+RESOURCE_BUNDLE_NAME="TermiPetApp_TermiPet.bundle"
 CERT_NAME="TermiPetLocal"
 KEYCHAIN="$HOME/Library/Keychains/login.keychain-db"
 
@@ -54,7 +59,17 @@ EOF
 cd "$SOURCE"
 find Sources -name "*.swift" -exec touch {} \;
 swift test
-swift build -c debug
+swift build -c "$BUILD_CONFIGURATION" --arch arm64 --arch x86_64
+
+if [ ! -x "$BUILD_PRODUCTS/TermiPet" ]; then
+    echo "error: built TermiPet executable not found at $BUILD_PRODUCTS/TermiPet" >&2
+    exit 1
+fi
+
+if [ ! -d "$BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME" ]; then
+    echo "error: resource bundle not found at $BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME" >&2
+    exit 1
+fi
 
 if [ -d "$APP" ]; then
     APP_BACKUP="$ROOT/App/TermiPet.app.previous-$(date +%Y%m%d-%H%M%S)"
@@ -65,7 +80,7 @@ fi
 mkdir -p "$APP/Contents/MacOS"
 mkdir -p "$APP/Contents/Resources/Pets"
 
-cp "$SOURCE/.build/debug/TermiPet" "$APP/Contents/MacOS/TermiPet"
+cp "$BUILD_PRODUCTS/TermiPet" "$APP/Contents/MacOS/TermiPet"
 cp "$SOURCE/AppBundle/Info.plist" "$APP/Contents/Info.plist"
 cp "$SOURCE/AppBundle/TermiPet.icns" "$APP/Contents/Resources/TermiPet.icns"
 
@@ -74,14 +89,13 @@ mkdir -p "$APP/Contents/Resources/Pets"
 for pet_dir in "$ROOT/Pets"/*/; do
     pet_name=$(basename "$pet_dir")
     if [ -f "$pet_dir/pet.json" ]; then
-        cp -R "$pet_dir" "$APP/Contents/Resources/Pets/$pet_name"
+        mkdir -p "$APP/Contents/Resources/Pets/$pet_name"
+        rsync -a --exclude ".DS_Store" "$pet_dir" "$APP/Contents/Resources/Pets/$pet_name/"
     fi
 done
 
 # 复制资源 bundle
-if [ -d "$SOURCE/.build/debug/TermiPetApp_TermiPet.bundle" ]; then
-    cp -r "$SOURCE/.build/debug/TermiPetApp_TermiPet.bundle" "$APP/Contents/Resources/"
-fi
+cp -R "$BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME" "$APP/Contents/Resources/"
 
 ensure_local_codesign_cert
 

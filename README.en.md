@@ -134,8 +134,8 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 | Item | Requirement |
 | --- | --- |
 | OS | macOS 14.0 or later |
-| Build toolchain | Swift 6 |
-| Local chat | Optional, requires [Ollama](https://ollama.com) |
+| Build toolchain | Swift 6 only when building from source |
+| Local chat | Optional; [Ollama](https://ollama.com) is only required when using local model chat |
 | Online models | Optional, requires OpenAI, Google Gemini, or compatible API credentials |
 | Permissions | Terminal preview and quick input require macOS Accessibility permission |
 
@@ -143,7 +143,7 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 
 ### Homebrew install
 
-If you use Homebrew, install TermiPet from its tap:
+Users do not need Swift or developer tools to run TermiPet. If you use Homebrew, install the latest packaged app from its tap:
 
 ```zsh
 brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
@@ -173,7 +173,7 @@ You can also read [`install.sh`](install.sh) before running it.
 Most users can download the packaged macOS app without building from source:
 
 1. Open [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases).
-2. Download `TermiPet-v0.1-macOS.zip` from the latest release.
+2. Download `TermiPet-v0.1.1-macOS.zip` from the latest release.
 3. Unzip it to get `TermiPet.app`.
 4. Move `TermiPet.app` to Applications, or double-click it directly.
 5. If macOS blocks the first launch, open System Settings -> Privacy & Security and allow TermiPet to run.
@@ -189,6 +189,12 @@ zsh Scripts/build-plugin.sh
 ```
 
 The script runs tests, builds the app, copies resources and pet packages into `App/TermiPet.app`, signs the local build, and launches it.
+
+To create the release zip after building:
+
+```zsh
+zsh Scripts/package-release.sh 0.1.1
+```
 
 ## Usage
 
@@ -226,6 +232,8 @@ Imported pets are copied into TermiPet's Application Support directory. The app 
 ## Acknowledgements
 
 TermiPet is shaped by and built around practical workflows involving **Claude Code**, **Codex**, **Google Gemini**, **GitHub Copilot**, and **Ollama**. They are not official contributors to or endorsers of TermiPet, but the app integrates with related local workflows, status displays, usage reading, and pet chat experiences.
+
+Thanks to **@Dinny-xu** and **@Gnonymous** for reporting and helping diagnose the v0.1 installer resource bundle issue.
 
 ## Star History
 

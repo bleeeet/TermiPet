@@ -117,7 +117,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func setupStatusItem() {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        if let imageURL = Bundle.module.url(forResource: "bar", withExtension: "png"),
+        if let imageURL = TermiPetResources.pngURL(named: "bar"),
            let image = NSImage(contentsOf: imageURL) {
             let size: CGFloat = 18
             let resized = NSImage(size: NSSize(width: size, height: size))

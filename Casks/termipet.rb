@@ -1,6 +1,6 @@
 cask "termipet" do
-  version "0.1"
-  sha256 "ae281c823068398bdfd553f00f6484a36f8763dd522a386641311920a0ad7f6a"
+  version "0.1.1"
+  sha256 "12ce70e0eba9030ab2dca58851faa1826102aeba84609ebd4ecfa62362b19e3a"
 
   url "https://github.com/bleeeet/TermiPet/releases/download/v#{version}/TermiPet-v#{version}-macOS.zip"
   name "TermiPet"
@@ -10,4 +10,10 @@ cask "termipet" do
   depends_on macos: :sonoma
 
   app "TermiPet.app"
+
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/TermiPet.app"],
+                   sudo: true
+  end
 end
