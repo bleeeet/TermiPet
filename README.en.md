@@ -144,7 +144,7 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 If you use Homebrew, install TermiPet from its tap:
 
 ```zsh
-brew tap bleeeet/termipet
+brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
 brew install --cask termipet
 ```
 
@@ -154,7 +154,7 @@ You can also use the fully qualified cask name to avoid conflicts with casks fro
 brew install --cask bleeeet/termipet/termipet
 ```
 
-> Maintenance note: this requires a separate `bleeeet/homebrew-termipet` tap repository containing [`Casks/termipet.rb`](Casks/termipet.rb). Update its `version` and `sha256` whenever a new Release is published.
+> Maintenance note: Homebrew reads [`Casks/termipet.rb`](Casks/termipet.rb) directly from this repository. Update its `version` and `sha256` whenever a new Release is published.
 
 ### One-line script install
 

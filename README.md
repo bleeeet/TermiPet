@@ -146,7 +146,7 @@ TermiPet 是本地运行的 macOS 应用，**没有自建的云端中转服务�
 如果你使用 Homebrew，可以通过 TermiPet 的 tap 安装：
 
 ```zsh
-brew tap bleeeet/termipet
+brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet
 brew install --cask termipet
 ```
 
@@ -156,7 +156,7 @@ brew install --cask termipet
 brew install --cask bleeeet/termipet/termipet
 ```
 
-> 维护说明：Homebrew tap 需要一个单独的 `bleeeet/homebrew-termipet` 仓库，并把本项目的 [`Casks/termipet.rb`](Casks/termipet.rb) 放进去。每次发布新版 Release 后，需要更新里面的 `version` 和 `sha256`。
+> 维护说明：Homebrew 会直接从当前仓库读取 [`Casks/termipet.rb`](Casks/termipet.rb)。每次发布新版 Release 后，需要更新里面的 `version` 和 `sha256`。
 
 ### 一行脚本安装
 

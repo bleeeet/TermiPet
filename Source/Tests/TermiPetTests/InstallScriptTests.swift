@@ -76,7 +76,7 @@ final class InstallScriptTests: XCTestCase {
     func testReadmeShowsHomebrewInstallCommands() throws {
         let readme = try readme
 
-        XCTAssertTrue(readme.contains("brew tap bleeeet/termipet"))
+        XCTAssertTrue(readme.contains("brew tap bleeeet/termipet https://github.com/bleeeet/TermiPet"))
         XCTAssertTrue(readme.contains("brew install --cask termipet"))
         XCTAssertTrue(readme.contains("brew install --cask bleeeet/termipet/termipet"))
     }
