@@ -1,13 +1,13 @@
 cask "termipet" do
-  version "0.1.1"
-  sha256 "12ce70e0eba9030ab2dca58851faa1826102aeba84609ebd4ecfa62362b19e3a"
+  version "0.1.2"
+  sha256 "9a85e79890c8f970d33e7c5a958d5a2db477aa66f1f4647b15e40da739f95a0f"
 
   url "https://github.com/bleeeet/TermiPet/releases/download/v#{version}/TermiPet-v#{version}-macOS.zip"
   name "TermiPet"
   desc "Desktop pet assistant for terminals and AI coding tools"
   homepage "https://github.com/bleeeet/TermiPet"
 
-  depends_on macos: :sonoma
+  depends_on macos: :ventura
 
   app "TermiPet.app"
 

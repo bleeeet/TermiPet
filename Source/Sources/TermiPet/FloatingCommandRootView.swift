@@ -106,18 +106,18 @@ struct FloatingCommandRootView: View {
         .animation(Self.popSpring, value: active)
         .animation(Self.popSpring, value: commandsExpanded)
         .animation(Self.popSpring, value: contextStore.approvalPrompt)
-        .onChange(of: active) { _, newValue in
+        .onChangeCompat(of: active) { newValue in
             activeChanged(newValue || commandsExpanded || commandPanelPinned || chatExpanded)
         }
-        .onChange(of: commandsExpanded) { _, newValue in
+        .onChangeCompat(of: commandsExpanded) { newValue in
             activeChanged(newValue || active || commandPanelPinned || chatExpanded)
             syncCommandPanelVisibility()
         }
-        .onChange(of: commandPanelPinned) { _, newValue in
+        .onChangeCompat(of: commandPanelPinned) { newValue in
             activeChanged(active || commandsExpanded || newValue || chatExpanded)
             syncCommandPanelVisibility()
         }
-        .onChange(of: chatExpanded) { _, newValue in
+        .onChangeCompat(of: chatExpanded) { newValue in
             activeChanged(active || commandsExpanded || commandPanelPinned || newValue)
             setChatWindowFocus(newValue)
             if newValue {
@@ -125,7 +125,7 @@ struct FloatingCommandRootView: View {
                 syncCommandPanelVisibility()
             }
         }
-        .onChange(of: chatStore.isStreaming) { _, streaming in
+        .onChangeCompat(of: chatStore.isStreaming) { streaming in
             if streaming {
                 petActionTask?.cancel()
                 _ = petActionPreview.trigger(action: 7)
@@ -138,7 +138,7 @@ struct FloatingCommandRootView: View {
             configureCommandPanel()
             syncCommandPanelVisibility()
         }
-        .onChange(of: hoverState.isHovering) { _, newValue in
+        .onChangeCompat(of: hoverState.isHovering) { newValue in
             handleHover(newValue)
         }
         .sheet(isPresented: $showingAddCommand) {
@@ -153,19 +153,19 @@ struct FloatingCommandRootView: View {
                 }
             )
         }
-        .onChange(of: showingAddCommand) { _, newValue in
+        .onChangeCompat(of: showingAddCommand) { newValue in
             handleModalPresentationChanged(newValue)
         }
-        .onChange(of: pomodoro.celebratePulse) { _, _ in
+        .onChangeCompat(of: pomodoro.celebratePulse) { _ in
             triggerPetAction(8)
         }
-        .onChange(of: contextStore.agentState) { _, new in
+        .onChangeCompat(of: contextStore.agentState) { new in
             handleAgentStateChange(new)
         }
-        .onChange(of: contextStore.currentApp) { _, newApp in
+        .onChangeCompat(of: contextStore.currentApp) { newApp in
             handleCurrentAppChange(newApp)
         }
-        .onChange(of: configurationRefresh.token) { _, _ in
+        .onChangeCompat(of: configurationRefresh.token) { _ in
             reloadCommandConfiguration()
         }
         .appSkin(skinStore.skin)

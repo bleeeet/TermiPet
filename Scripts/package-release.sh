@@ -6,7 +6,7 @@ set -o pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$ROOT/App/TermiPet.app"
 DIST="$ROOT/dist"
-VERSION="${1:-0.1.1}"
+VERSION="${1:-0.1.2}"
 ZIP_PATH="$DIST/TermiPet-v${VERSION}-macOS.zip"
 
 if [ ! -d "$APP" ]; then

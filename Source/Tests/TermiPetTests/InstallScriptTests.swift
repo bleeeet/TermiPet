@@ -26,6 +26,25 @@ final class InstallScriptTests: XCTestCase {
         }
     }
 
+    private var packageManifest: String {
+        get throws {
+            let packageURL = repoRoot
+                .appendingPathComponent("Source")
+                .appendingPathComponent("Package.swift")
+            return try String(contentsOf: packageURL, encoding: .utf8)
+        }
+    }
+
+    private var appInfoPlist: String {
+        get throws {
+            let plistURL = repoRoot
+                .appendingPathComponent("Source")
+                .appendingPathComponent("AppBundle")
+                .appendingPathComponent("Info.plist")
+            return try String(contentsOf: plistURL, encoding: .utf8)
+        }
+    }
+
     private var readme: String {
         get throws {
             let readmeURL = repoRoot.appendingPathComponent("README.md")
@@ -66,13 +85,32 @@ final class InstallScriptTests: XCTestCase {
         let cask = try homebrewCask
 
         XCTAssertTrue(cask.contains("cask \"termipet\" do"))
-        XCTAssertTrue(cask.contains("version \"0.1.1\""))
+        XCTAssertTrue(cask.contains("version \"0.1.2\""))
         XCTAssertTrue(cask.contains("sha256 \""))
         XCTAssertTrue(cask.contains("https://github.com/bleeeet/TermiPet/releases/download/v#{version}/TermiPet-v#{version}-macOS.zip"))
-        XCTAssertTrue(cask.contains("depends_on macos: :sonoma"))
+        XCTAssertTrue(cask.contains("depends_on macos: :ventura"))
         XCTAssertTrue(cask.contains("app \"TermiPet.app\""))
         XCTAssertTrue(cask.contains("postflight do"))
         XCTAssertTrue(cask.contains("/usr/bin/xattr"))
+    }
+
+    func testReleaseTargetsMacOSVenturaOrNewer() throws {
+        XCTAssertTrue(try packageManifest.contains("// swift-tools-version: 6.0"))
+        XCTAssertTrue(try packageManifest.contains(".macOS(.v13)"))
+        XCTAssertTrue(try appInfoPlist.contains("<string>13.0</string>"))
+        XCTAssertTrue(try installScript.contains("TermiPet requires macOS 13.0 or later."))
+        XCTAssertFalse(try installScript.contains("-lt 14"))
+        XCTAssertTrue(try installScript.contains("-lt 13"))
+    }
+
+    func testBuildScriptValidatesSwiftPMResourceBundleContents() throws {
+        let script = try buildScript
+
+        XCTAssertTrue(script.contains("RESOURCE_BUNDLE_PATH="))
+        XCTAssertTrue(script.contains("$RESOURCE_BUNDLE_PATH/Contents/Info.plist"))
+        for resource in ["AppLogo.png", "StatusBarCat.png", "TermiPet.png", "bar.png", "github.png", "instagram.png", "twitter.png"] {
+            XCTAssertTrue(script.contains(resource))
+        }
     }
 
     func testReadmeShowsHomebrewInstallCommands() throws {

@@ -38,7 +38,7 @@ final class GlobalInputController {
         panel.canCreateDirectories = true
         panel.prompt = "选择"
 
-        NSApp.activate()
+        NSApp.activate(ignoringOtherApps: true)
         guard panel.runModal() == .OK, let url = panel.url else { return }
 
         targetTracker.refreshFromFrontmostApplication()
@@ -192,7 +192,7 @@ final class GlobalInputController {
             activateWindow(titled: windowTitle, in: application)
         }
         if !application.activate(options: [.activateAllWindows]) {
-            application.activate()
+            _ = application.activate(options: [.activateIgnoringOtherApps])
         }
     }
 

@@ -9,6 +9,16 @@ APP="$ROOT/App/TermiPet.app"
 BUILD_CONFIGURATION="release"
 BUILD_PRODUCTS="$SOURCE/.build/apple/Products/Release"
 RESOURCE_BUNDLE_NAME="TermiPetApp_TermiPet.bundle"
+RESOURCE_BUNDLE_PATH="$BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME"
+RESOURCE_FILES=(
+    "AppLogo.png"
+    "StatusBarCat.png"
+    "TermiPet.png"
+    "bar.png"
+    "github.png"
+    "instagram.png"
+    "twitter.png"
+)
 CERT_NAME="TermiPetLocal"
 KEYCHAIN="$HOME/Library/Keychains/login.keychain-db"
 
@@ -66,10 +76,22 @@ if [ ! -x "$BUILD_PRODUCTS/TermiPet" ]; then
     exit 1
 fi
 
-if [ ! -d "$BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME" ]; then
-    echo "error: resource bundle not found at $BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME" >&2
+if [ ! -d "$RESOURCE_BUNDLE_PATH" ]; then
+    echo "error: resource bundle not found at $RESOURCE_BUNDLE_PATH" >&2
     exit 1
 fi
+
+if [ ! -f "$RESOURCE_BUNDLE_PATH/Contents/Info.plist" ]; then
+    echo "error: resource bundle Info.plist not found at $RESOURCE_BUNDLE_PATH/Contents/Info.plist" >&2
+    exit 1
+fi
+
+for resource_file in "${RESOURCE_FILES[@]}"; do
+    if [ ! -f "$RESOURCE_BUNDLE_PATH/Contents/Resources/$resource_file" ]; then
+        echo "error: resource bundle missing $resource_file" >&2
+        exit 1
+    fi
+done
 
 if [ -d "$APP" ]; then
     APP_BACKUP="$ROOT/App/TermiPet.app.previous-$(date +%Y%m%d-%H%M%S)"
@@ -95,7 +117,7 @@ for pet_dir in "$ROOT/Pets"/*/; do
 done
 
 # 复制资源 bundle
-cp -R "$BUILD_PRODUCTS/$RESOURCE_BUNDLE_NAME" "$APP/Contents/Resources/"
+cp -R "$RESOURCE_BUNDLE_PATH" "$APP/Contents/Resources/"
 
 ensure_local_codesign_cert
 

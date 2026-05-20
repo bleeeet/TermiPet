@@ -139,7 +139,7 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 
 | Item | Requirement |
 | --- | --- |
-| OS | macOS 14.0 or later |
+| OS | macOS 13.0 or later |
 | Build toolchain | Swift 6 only when building from source |
 | Local chat | Optional; [Ollama](https://ollama.com) is only required when using local model chat |
 | Online models | Optional, requires OpenAI, Google Gemini, or compatible API credentials |
@@ -152,7 +152,7 @@ In short: TermiPet is a **local plugin and desktop assistant**. API requests go 
 This is the recommended path for most users: no Swift, Homebrew, or other developer tools are required. Just download the packaged macOS app.
 
 1. Open [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases).
-2. Download `TermiPet-v0.1.1-macOS.zip` from the latest release.
+2. Download `TermiPet-v0.1.2-macOS.zip` from the latest release.
 3. Unzip it to get `TermiPet.app`.
 4. Move `TermiPet.app` to the Applications folder, or double-click it directly.
 5. If macOS says the app is from an unidentified developer on first launch, open System Settings -> Privacy & Security and allow it to run.
@@ -485,7 +485,7 @@ zsh Scripts/build-plugin.sh
 Create a release zip:
 
 ```zsh
-zsh Scripts/package-release.sh 0.1.1
+zsh Scripts/package-release.sh 0.1.2
 ```
 
 Run tests only:

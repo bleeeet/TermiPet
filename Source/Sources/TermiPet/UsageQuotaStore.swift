@@ -17,7 +17,7 @@ final class UsageQuotaStore: ObservableObject {
 
     init(
         cacheTTL: TimeInterval = 300,
-        now: @escaping @Sendable () -> Date = Date.init,
+        now: @escaping @Sendable () -> Date = { Date() },
         fetchClaude: @escaping Fetch = { await ClaudeCodeQuotaFetcher().fetch() },
         fetchCodex: @escaping Fetch = { await CodexQuotaFetcher().fetch() },
         fetchCopilot: @escaping Fetch = { await CopilotQuotaFetcher().fetch() }

@@ -35,8 +35,8 @@ if [ "$(uname -s)" != "Darwin" ]; then
     fail "TermiPet only supports macOS."
 fi
 
-if [ "$(macos_major_version)" -lt 14 ]; then
-    fail "TermiPet requires macOS 14.0 or later."
+if [ "$(macos_major_version)" -lt 13 ]; then
+    fail "TermiPet requires macOS 13.0 or later."
 fi
 
 WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/termipet-install.XXXXXX")"

@@ -78,7 +78,7 @@ struct ModelTabView: View {
             }
         }
         .pickerStyle(.segmented)
-        .onChange(of: vm.config.provider) { _, provider in
+        .onChangeCompat(of: vm.config.provider) { provider in
             vm.saveConfig()
             if provider == .local {
                 Task { await vm.refresh() }
@@ -433,7 +433,7 @@ struct ModelTabView: View {
                 }
             }
             .pickerStyle(.segmented)
-            .onChange(of: vm.config.onlineProvider) { _, _ in
+            .onChangeCompat(of: vm.config.onlineProvider) { _ in
                 vm.saveOnlineSettings()
             }
 

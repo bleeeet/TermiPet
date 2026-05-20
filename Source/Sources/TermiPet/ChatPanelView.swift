@@ -43,8 +43,8 @@ struct PetChatView: View {
                 .padding(.vertical, 4)
             }
             .frame(maxHeight: 210)
-            .onChange(of: chatStore.messages.count) { _, _ in scrollDown(proxy) }
-            .onChange(of: chatStore.streamingContent.count) { _, _ in scrollDown(proxy) }
+            .onChangeCompat(of: chatStore.messages.count) { _ in scrollDown(proxy) }
+            .onChangeCompat(of: chatStore.streamingContent.count) { _ in scrollDown(proxy) }
         }
     }
 

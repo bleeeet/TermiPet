@@ -136,7 +136,7 @@ TermiPet は Mac 上でローカルに動作し、**独自のクラウド中継�
 
 | 項目 | 要件 |
 | --- | --- |
-| OS | macOS 14.0 以降 |
+| OS | macOS 13.0 以降 |
 | ビルド環境 | Swift 6 |
 | ローカルチャット | 任意。ローカルモデルでチャットする場合のみ [Ollama](https://ollama.com) のインストールと起動が必要 |
 | オンラインモデル | 任意、OpenAI、Google Gemini、または互換 API のキーが必要 |
@@ -149,7 +149,7 @@ TermiPet は Mac 上でローカルに動作し、**独自のクラウド中継�
 通常のユーザーにはこの方法をおすすめします。Swift、Homebrew、その他の開発ツールは不要で、パッケージ済みの macOS App をそのままダウンロードできます。
 
 1. [TermiPet Releases](https://github.com/bleeeet/TermiPet/releases) を開きます。
-2. 最新リリースから `TermiPet-v0.1.1-macOS.zip` をダウンロードします。
+2. 最新リリースから `TermiPet-v0.1.2-macOS.zip` をダウンロードします。
 3. 解凍して `TermiPet.app` を取り出します。
 4. `TermiPet.app` を「アプリケーション」フォルダへ移動するか、そのままダブルクリックして起動します。
 5. 初回起動時に macOS が未確認の開発元として警告する場合は、「システム設定 -> プライバシーとセキュリティ」から実行を許可してください。
@@ -482,7 +482,7 @@ zsh Scripts/build-plugin.sh
 リリース zip の生成:
 
 ```zsh
-zsh Scripts/package-release.sh 0.1.1
+zsh Scripts/package-release.sh 0.1.2
 ```
 
 テストのみ実行:

@@ -15,7 +15,7 @@ struct PetSpriteView: View {
         .onAppear {
             actionStartDate = .now
         }
-        .onChange(of: action) { _, _ in
+        .onChangeCompat(of: action) { _ in
             actionStartDate = .now
         }
     }

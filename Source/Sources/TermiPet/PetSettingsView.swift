@@ -193,7 +193,7 @@ struct PetSettingsView: View {
                 appearanceTabContent
             case .language:
                 LanguageTabView(selectedLanguage: $selectedLanguage, localizer: localizer)
-                    .onChange(of: selectedLanguage) { _, newValue in
+                    .onChangeCompat(of: selectedLanguage) { newValue in
                         AppLanguageStore().save(newValue)
                     }
             case .commands:

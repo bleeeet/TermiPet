@@ -46,7 +46,7 @@ struct PersonalityTabView: View {
             .padding(.bottom, 18)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .onChange(of: config) { _, newValue in
+        .onChangeCompat(of: config) { newValue in
             try? store.save(newValue)
             saveMessage = ""
         }
